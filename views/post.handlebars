@@ -1,0 +1,29 @@
+{{#if loggedIn}}
+  <p>Welcome, {{username}}! <a href="/auth/logout">Logout</a></p>
+  <a href="/">Home</a>
+  <a href="/dashboard">Dashboard</a>
+{{else}}
+  <a href="/auth/signup">Sign Up</a>
+  <a href="/auth/login">Log In</a>
+{{/if}}
+
+{{#if post}}
+  <h2>{{post.title}}</h2>
+  <p>{{formatDate post.createdAt}} by {{post.User.username}}</p>
+  <p>{{post.content}}</p>
+
+  <h3>Comments</h3>
+  {{#each comments}}
+    <p>{{formatDate this.createdAt}} by {{this.User.username}}: {{this.comment}}</p>
+  {{/each}}
+
+  {{#if loggedIn}}
+    <h3>Add a Comment</h3>
+    <form action="/comment/{{post.id}}" method="POST">
+      <textarea name="comment" rows="3" required></textarea>
+      <button type="submit">Submit Comment</button>
+    </form>
+  {{/if}}
+{{else}}
+  <p>Post not found</p>
+{{/if}}
