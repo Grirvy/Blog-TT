@@ -1,0 +1,25 @@
+{{#if loggedIn}}
+  <p>Welcome, {{username}}! <a href="/auth/logout">Logout</a></p>
+  <a href="/">Home</a>
+  <a href="/dashboard">Dashboard</a>
+{{else}}
+  <a href="/auth/signup">Sign Up</a>
+  <a href="/auth/login">Log In</a>
+{{/if}}
+
+{{#if userPosts.length}}
+  <h2>Your Blog Posts</h2>
+  <ul>
+    {{#each userPosts}}
+      <li>
+        {{this.title}} - {{formatDate this.createdAt}}
+        <a href="/dashboard/edit/{{this.id}}">Edit</a>
+        <a href="/dashboard/delete/{{this.id}}">Delete</a>
+      </li>
+    {{/each}}
+  </ul>
+{{else}}
+  <p>No blog posts yet</p>
+{{/if}}
+
+<a href="/dashboard/new">Add a New Blog Post</a>

@@ -1,0 +1,17 @@
+[
+    {
+      "comment": "Great post!",
+      "userId": 1,
+      "postId": 1,
+      "createdAt": "2022-01-23T13:00:00.000Z",
+      "updatedAt": "2022-01-23T13:00:00.000Z"
+    },
+    {
+      "comment": "Thanks for sharing.",
+      "userId": 2,
+      "postId": 1,
+      "createdAt": "2022-01-23T13:00:00.000Z",
+      "updatedAt": "2022-01-23T13:00:00.000Z"
+    }
+]
+  
